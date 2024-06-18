@@ -22,13 +22,14 @@ body{
   justify-content: space-evenly;
   align-items: center;
   overflow: hidden;
-  padding: 10px !important;
+  padding: 40px !important;
 }
 
 @media (max-width: 1024px) {
   .content{
     flex-direction: column;
     gap: 5rem;
+    padding: 10px !important;
   }
 
   .info-container{
