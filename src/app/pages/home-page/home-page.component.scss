@@ -24,6 +24,7 @@ body{
   overflow: hidden;
   height: 98vh;
   padding: 10px !important;
+  overflow-y: auto;
 }
 
 @media (max-width: 1024px) {
@@ -99,6 +100,19 @@ body{
   @media (max-width: 1024px) {
     width: 100%;
   }
+}
+
+@media (max-width: 1024px) {
+  .circle-container{
+    height: 20rem;
+    width: 20rem;
+  }
+}
+
+.fixed-height-container{
+  height: 500px;
+  display: flex;
+  align-items: center;
 }
 
 .profile-photo {
