@@ -1,3 +1,15 @@
-import { Routes } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
+import {HomePageComponent} from './pages/home-page/home-page.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {path: 'home', component: HomePageComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '**', redirectTo: '/home'},
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
+  exports: [RouterModule],
+})
+export class AppRoutes {}

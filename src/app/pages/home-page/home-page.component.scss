@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 98vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: hidden;
+  height: 98vh;
+  padding: 10px !important;
+}
+
+@media (max-width: 1024px) {
+  .content{
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  .info-container{
+    align-items: flex-start;
+    width: 100% !important;
+    margin-bottom: 2rem;
+  }
+}
+
+.info-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  gap: 1rem;
+}
+
+.greetings-container{
+  width: 250px;
+}
+
+.greetings{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.presentation-aligner{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+.yellow-name{
+  font-family: 'Open Sans', sans-serif;
+  color: #F5B32F;
+  text-shadow: 4px 2px #ff6a00;
+  margin: 0;
+  font-size: 4rem;
+}
+
+.yellow-container{
+  background-color: #F5B32F;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  width: 306px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  height: 30px;
+
+  .p{
+    color: #010101;
+  }
+}
+
+.description{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: justify;
+  width: 80%;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+}
+
+.profile-photo {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  object-fit: cover;
+}
+
+.circle-container {
+  border: 5px solid;
+  border-radius: 50%;
+  margin: 10px;
+  height: 20rem;
+  width: 20rem;
+  position: relative;
+  margin-left: 30px;
+}
+
+.orbit {
+  width: 25rem;
+  height: 25rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: rotate 10s infinite linear;
+}
+
+.planet {
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+.planet-1 {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 0s; /* Sem delay para o primeiro planeta */
+}
+
+.planet-2 {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  animation-delay: 0.5s; /* Delay de meio segundo para o segundo planeta */
+}
+
+.planet-3 {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  animation-delay: 1s; /* Delay de um segundo para o terceiro planeta */
+}
+
+.planet-4 {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 1.5s; /* Delay de um segundo e meio para o quarto planeta */
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.socials-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+.socials-container a {
+  position: relative;
+  display: inline-block;
+  width: 30px; /* Garantir que todos os elementos 'a' têm uma largura definida */
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 100px;
+  background-color: #F5B32F;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 10px); /* Posiciona o tooltip abaixo do ícone com um pequeno espaço */
+  left: 0%; /* Alinha o início do tooltip com o início do ícone */
+  transform: translateX(0%); /* Remove qualquer deslocamento horizontal adicional */
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-weight: 700;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  top: -6px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  border-bottom: 10px solid #F5B32F;
+}
+
+.socials-container a:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
